@@ -55,14 +55,14 @@ public class CategoryFragment extends Fragment {
         View view = inflater.from(getContext()).inflate(R.layout.words_list, container,
                 false);
         // Initialize audio manager
-        mAudioManager = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
         //Create an array of words and background color
         words = getArguments().getParcelableArrayList("category");
         mBackgroundColor = getArguments().getInt("background");
 
         //Create an array adapter to display items inside the List View
-        WordAdapter itemsAdapter = new WordAdapter(getContext(),words,mBackgroundColor);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(),words,mBackgroundColor);
         ListView listView = view.findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
 
@@ -77,7 +77,7 @@ public class CategoryFragment extends Fragment {
                         AudioManager.STREAM_MUSIC,AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 //Start mediaplayer if permission is granted
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mediaPlayer = MediaPlayer.create(getContext(),word.getAudioResourceID());
+                    mediaPlayer = MediaPlayer.create(getActivity(),word.getAudioResourceID());
                     mediaPlayer.start();
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
