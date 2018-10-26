@@ -1,22 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:id="@+id/rootLinearLayout"
+    android:background="@color/category_numbers">
 
-    <TextView
-        android:id="@+id/miwokNumberText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingLeft="16dp"
-        android:text="Miwok"/>
+    <ImageView
+        android:id="@+id/miwokImage"
+        android:layout_gravity="center_vertical"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        android:background="@color/tan_background"/>
 
-    <TextView
-        android:id="@+id/defaultNumberText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="English"
-        android:paddingLeft="16dp"
-        android:paddingBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/miwokNumberText"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            style="@style/ViewStyle"
+            android:textStyle="bold"
+            android:text="Miwok"/>
+
+        <TextView
+            android:id="@+id/defaultNumberText"
+            style="@style/ViewStyle"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="English"
+            android:paddingBottom="16dp"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_weight="0"
+        android:src="@drawable/play_icon"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="center_vertical"/>
 
 </LinearLayout>
